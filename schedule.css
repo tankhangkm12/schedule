@@ -96,6 +96,13 @@ body{
     text-align: center;
     font-size: 16px;
 }
+.button-option>button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.button-option>button:active{
+    transform: scale(0.95);
+}
 .container-grid{
     /* ... các thuộc tính khác */
     display: grid;
@@ -127,14 +134,7 @@ body{
         width:20%;
         height:50px;
     }
-    .button-option>button:hover{
-        transform: scale(1.05);
-        cursor: pointer;
-    }
-    .button-option>button:active{
-        transform: scale(0.95);
-    }
-}
+}   
 @media only screen and (max-width:739px) {
     .container-grid{
         grid-template-columns: 12fr;
