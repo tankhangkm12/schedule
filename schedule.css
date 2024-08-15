@@ -1,0 +1,173 @@
+body{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+.header{
+    grid-area: header;
+    position: absolute;
+    z-index: 10;
+    top:0;
+    left:5%;
+    background-color: white;
+    height:100vh;
+    
+}
+.header h2{
+    writing-mode:vertical-rl;
+    text-orientation: upright;
+    margin-bottom:30%;
+}
+.morning-table{
+    grid-area: morning;
+}
+.lunch-break-box{
+    grid-area: lunch-break;
+    text-align: center;
+}
+.afternoon-table{
+    grid-area: afternoon;
+}
+.lunch-break-box,.morning-table,.afternoon-table{
+    border:solid 1px black;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.lunch-break-text{
+    height:30%;
+    font-size: 12px;
+}
+
+.morning-header{
+    position: relative;
+    top:30vh;
+    display: flex;
+    justify-content: center;
+}
+.note-box{
+    width:100%;
+    padding-bottom: 10%;;
+    border-top: 5px solid blue;
+}
+.afternoon-header{
+    position: relative;
+    top:57vh;
+    display: flex;
+    justify-content: center;
+}
+
+.table-wrapper{
+    width:100%;
+    height: 100%;
+    overflow: auto;
+
+}
+.table-wrapper table td{
+    border:solid 1px black;
+    padding:10px;
+    text-align:center;
+    width:calc(100%/7)
+}
+.table-wrapper table tr td input{
+    width:100%;
+    height: 100%;
+    border:none;
+}
+.button-option{
+    grid-area: button-option;
+   display: flex;
+   justify-content: end;
+}
+.button-cancel,.button-save{
+    width:15%;
+    height:auto;
+    margin-right:15px;
+}
+.button-save{
+    background-color: green;
+}
+.button-cancel{
+    background-color: red;
+}
+.title-schedule{
+    grid-area: title-schedule;
+    text-align: center;
+    font-size: 16px;
+}
+.container-grid{
+    /* ... các thuộc tính khác */
+    display: grid;
+    grid-template-columns:2fr 10fr 2fr;
+    grid-template-rows:1fr 4fr 2fr 4fr 1fr; /* 4 hàng */
+    grid-template-areas:
+        " header title-schedule"
+        " header morning"
+        " header lunch-break"
+        " header afternoon" 
+        " header button-option "; 
+    height:120vh;
+    gap: 20px;
+}
+.afternoon-table-text,.morning-table-text{
+    display: none;
+    text-align: center;
+}
+
+@media only screen and (max-width:1023px) {
+    .header{
+        left:0;
+    }
+    .button-option{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .button-save,.button-cancel{
+        width:20%;
+        height:50px;
+    }
+    .button-option>button:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    .button-option>button:active{
+        transform: scale(0.95);
+    }
+}
+@media only screen and (max-width:739px) {
+    .container-grid{
+        grid-template-columns: 12fr;
+        grid-template-rows: 1fr 4fr 2fr 4fr 1fr;
+        grid-template-areas:
+        " title-schedule"
+        " morning"
+        " lunch-break"
+        " afternoon" 
+        " button-option "; 
+        height:120vh;
+    }
+    .header{
+        display: none;
+    }
+    .title-schedule{
+        font-size:10px;
+    }
+    .afternoon-table-text,.morning-table-text{
+        display: block;
+        text-align: center;
+    }
+    .table-wrapper{
+        width: 200vh;
+    }
+    .table-wrapper table td{
+        border:solid 1px black;
+        padding:10px;
+        text-align:center;
+        width:calc(200vh/7)
+    }
+    
+
+    
+
+}
